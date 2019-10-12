@@ -26,14 +26,29 @@ def login():
     )
 
 # Register an Account to use Dashboard
-@app.route("/register", methods=["GET", "POST"])
-def register():
-    return render_template("register.html")
+@app.route("/create", methods=["GET", "POST"])
+def create():
+    return render_template("create_new.html")
 
 # Show Dashboard once user has logged in
 @app.route("/dashboard", methods=["GET", "POST"])
 def dashboard():
-    return render_template("dashboard.html")
+    return render_template("cv_display.html")
+
+
+@app.route("/select", methods=["GET", "POST"])
+def select():
+    return render_template("select_cv.html")
+
+
+@app.route("/upload", methods=["GET", "POST"])
+def upload():
+    return render_template("upload.html")
+
+
+@app.route("/display", methods=["GET", "POST"])
+def display():
+    return render_template("cv_display.html")
 
 
 if __name__ == "__main__":
