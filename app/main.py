@@ -33,17 +33,16 @@ def login():
     )
 
 
-@app.route("/upload",methods=["POST"])
+@app.route("/uploaded",methods=["POST"])
 def uploadFile():
     if request.method == 'POST':
         f = request.files['file']
         filename = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
         data = ResumeParser(os.path.join(app.config['UPLOAD_FOLDER'],filename)).get_extracted_data()
-      
+ 
     return data
 
-# Register an Account to use Dashboard
 @app.route("/create", methods=["GET", "POST"])
 def create():
     return render_template("create_new.html")
