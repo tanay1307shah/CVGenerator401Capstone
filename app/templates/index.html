@@ -1,1 +1,19 @@
-Index
+<!DOCTYPE html>
+<head>
+    <title> CV Parser</title>
+    <!-- <script>
+        function uploadFile(){
+            var files = document.getElementById("file_input");
+            if(files.files && files.files.length == 1 ){
+                var file = files.files[0];
+            }
+
+        }
+    </script> -->
+</head>
+<body>
+        <form enctype="multipart/form-data" action="http://localhost:5000/upload" method="POST">
+            <input type="file" name="file"/>
+            <button type="submit">Submit</button>
+          </form>
+</body>
