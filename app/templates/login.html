@@ -28,6 +28,13 @@
     width: 817px;
     top: calc((50% - 25.5px) + 97.5px);
     height: 51px;
+    align-self: center;
+    text-align: center;
+    align-content: center;
+    justify-content: center;
+    font-size: 20pt;
+    font-weight: bold;
+    font-family: "Marko One";
   }
 
   /* Employee ID */
@@ -111,22 +118,71 @@
     left: calc((50% - 85.5px) + -0.5px);
     top: calc((50% - 18.5px) + 260.5px);
   }
+
+#submitBtn{
+  width: 318px;
+  height: 86px;
+  background: #6AC142;
+  border-radius: 50px;
+  margin-top: 2rem;
+  border: none;
+}
+
+#BtnTxt{
+  font-family: Marko One;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 54px;
+  align-items: center;
+  text-align: center;
+  color: #FFFFFF;
+
+}
 </style>
 
-<!-- Login Page -->
-<div class="frame" id="n1_2">
-  <!-- chla logo -->
-  <div class="center rectangle" id="n1_3"></div>
-  <!-- Username -->
-  <div class="center rectangle" id="n1_4"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n1_7">Username</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n1_5"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n1_8">Password</div>
-  <!-- CV-Genius -->
-  <div class="center text" id="n1_9">CV-Genius</div>
-  <!-- Register? -->
-  <div class="center text" id="n1_10">Register?</div>
-</div>
+
+<!DOCTYPE html>
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Marko+One&display=swap" rel="stylesheet">
+    <title> CV Parser</title>
+    <!-- <script>
+        function uploadFile(){
+            var files = document.getElementById("file_input");
+            if(files.files && files.files.length == 1 ){
+                var file = files.files[0];
+            }
+
+        }
+    </script> -->
+</head>
+<body id ="n1_2">
+    <div 
+        style="-ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            padding: 10px 0; left: 50%;top: 50%; 
+            width:100%; justify-content: center;
+            text-align: center; 
+            vertical-align: -webkit-baseline-middle;
+            position: absolute;"
+    >  
+      
+      <form enctype="multipart/form-data" action="http://localhost:5000/verifyLogin" method="POST">
+        <div id="n1_9" style="width: 100%;">CV Genius</div>
+        <input placeholder="Username" type="text" name="username" id="n1_4" style="margin-top: 2.5rem;"/>
+        <br/>
+        <input placeholder="Password" type="password" name="pass" id="n1_4" style="margin-top: 0.75rem;"/>
+        <br/>
+        <Button type="submit" id="submitBtn" name="sumit" style="text-align: center; margin-bottom: 2rem;">
+          <text id="BtnTxt" style="text-align: center; align-content: center; justify-self: center;">Login</text>
+        </Button>
+        <br/>
+        <a href="/upload" style="text-decoration: none; ">
+          
+        <text id="BtnTxt" style="font-size: 25px;text-align: center; align-content: center; justify-self: center;">Register?</text>
+
+        </a>
+      </form>
+      
+    </div>
+</body>

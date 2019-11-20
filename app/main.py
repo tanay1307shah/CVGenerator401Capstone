@@ -21,27 +21,35 @@ app = Flask(__name__)
 UPLOAD_FOLDER = './uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 # Index
-@app.route("/")
+@app.route("/index")
 def index():
     return render_template("index.html")
 
 # Login to use Dashboard
-@app.route("/login", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST"])
 def login():
     return render_template(
         "login.html"
     )
 
-
-@app.route("/uploaded",methods=["POST"])
-def uploadFile():
+@app.route("/verifyLogin", methods=["POST"])
+def verifylogin():
     if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('pass')
+    return {1: username,2: password}
+
+
+
+@app.route("/uploaded",methods=["GET","POST"])
+def uploadFile():
         f = request.files['file']
         filename = secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
         data = ResumeParser(os.path.join(app.config['UPLOAD_FOLDER'],filename)).get_extracted_data()
+        return render_template("updateInfo.html", parsedData = data)
  
-    return data
+    
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
