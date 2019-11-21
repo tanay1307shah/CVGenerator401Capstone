@@ -62,34 +62,81 @@
         }, false);
 
         function loadDoc() {
-            var xhttp = new XMLHttpRequest();
-            // xhttp.onreadystatechange = function() {
-            //     if (this.readyState == 4 && this.status == 200) {
-            //     document.getElementById("name").innerHTML = this.responseText;
-            //     }
-            // };
-
-            var homeAdd = document.getElementById('home1').val + ",\n"
-                            + document.getElementById('home2').val + ",\n"
-                            + document.getElementById('home3').val + ","
-                            + document.getElementById('home4').val + ","
-                            + document.getElementById('home5').val + ",\n"
-                            + "phone: " + document.getElementById('home6').val + ",\n"
-                            + "fax: " + document.getElementById('home7').val + ",\n"
-                            + "email: " + document.getElementById('home8').val + ",";
-
-            var wordAdd = document.getElementById('work1').val + ",\n"
-                            + document.getElementById('work2').val + ",\n"
-                            + document.getElementById('work3').val + ","
-                            + document.getElementById('work4').val + ","
-                            + document.getElementById('work5').val + ",\n"
-                            + "phone: " + document.getElementById('work6').val + ",\n"
-                            + "fax: " + document.getElementById('work7').val + ",\n"
-                            + "email: " + document.getElementById('work8').val + ",";
-
-
             
-            xhttp.open("POST", "/generateResume?data=" + JSON.stringify(data) , true);
+            var homeAdd = document.getElementById('home1').value  + ",\n"
+                            + document.getElementById('home2').value + ",\n"
+                            + document.getElementById('home3').value + ","
+                            + document.getElementById('home4').value + ","
+                            + document.getElementById('home5').value + ",\n"
+                            + "phone: " + document.getElementById('home6').value + ",\n"
+                            + "fax: " + document.getElementById('home7').value + ",\n"
+                            + "email: " + document.getElementById('home8').value + ",";
+
+            var wordAdd = document.getElementById('work1').value + ",\n"
+                            + document.getElementById('work2').value + ",\n"
+                            + document.getElementById('work3').value + ","
+                            + document.getElementById('work4').value + ","
+                            + document.getElementById('work5').value + ",\n"
+                            + "phone: " + document.getElementById('work6').value + ",\n"
+                            + "fax: " + document.getElementById('work7').value + ",\n"
+                            + "email: " + document.getElementById('work8').value + ",";
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+
+            var education = document.getElementById('education').value;
+            var postgradtraining = document.getElementById('pgtcon').value;
+            var othertraining = document.getElementById('othercon').value;
+            var academicappt = document.getElementById('academic').value;
+            var clinicalappt = document.getElementById('clinical').value;
+            var license = document.getElementById('license').value;
+            var boardcertificate = document.getElementById('certificate').value;
+            var awards = document.getElementById('awards').value;
+            var didactic = document.getElementById('didactic').value;
+            var ugm = document.getElementById('ugm').value;
+            var gst = document.getElementById('gst').value;
+            var hms = document.getElementById('hms').value;
+            var us = document.getElementById('us').value;
+            var cs = document.getElementById('cs').value;
+            var mlp = document.getElementById('mlp').value;
+            var mari = document.getElementById('mari').value;
+            var gsc = document.getElementById('gsc').value;
+            var ipp = document.getElementById('ipp').value;
+            var ilk = document.getElementById('ilk').value;
+            var igr = document.getElementById('igr').value;
+            
+            
+
+
+            var data = "name=" + name + "&"
+            + "email=" + email + "&"
+            + "work=" + wordAdd + "&"
+            + "home=" + homeAdd + "&"
+            + "education=" + education + "&"
+            + "post_graduate_training=" + postgradtraining + "&"
+            + "other_training=" + othertraining + "&"
+            + "academic_appointment=" + academicappt + "&"
+            + "clinical_appointment=" + clinicalappt + "&"
+            + "license=" + license + "&"
+            + "board_certificates=" + boardcertificate + "&"
+            + "honors_awards=" + awards + "&"
+            + "didactic=" + didactic + "&"
+            + "ugm=" + ugm + "&"
+            + "gst=" + gst + "&"
+            + "hms=" + hms + "&"
+            + "us=" + us + "&"
+            + "cs=" + cs + "&"
+            + "mlp=" + mlp + "&"
+            + "mari=" + mari + "&"
+            + "gsc=" + gsc + "&"
+            + "ipp=" + ipp + "&"
+            + "ilk=" + ilk + "&"
+            + "igr=" + igr;
+
+
+
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "/generateResume?" + data, true);
             xhttp.send();
         }
 
@@ -302,7 +349,7 @@
             </div>
             <br/>
             <br/>
-            <button" value="Submit" onclick="loadDoc()">Submit</button>
+            <button class="btn btn-raised" style="background-color: #6AC142;" type="button" onclick="loadDoc()">Generate Resume</button>
             <br/>
             <br/>
             <br/>
