@@ -1,4 +1,15 @@
 <!DOCTYPE html>
+<style>
+    #n1_2 {
+        width: 100%;
+        height: 100%;
+        font-family: "Marko One";
+        color:white;
+        background: rgb(1, 91, 154);
+    }
+
+
+</style>
 <head>
      <!-- Compiled and minified CSS
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -6,7 +17,7 @@
      Compiled and minified JavaScript -->
      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/> --> 
-
+     <link href="https://fonts.googleapis.com/css?family=Marko+One&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -84,14 +95,14 @@
 
     </script>
 </head>
-<body>
+<body id ="n1_2">
         <div style="align-content: center; width: 80%; align-self: center;position: absolute; left: 10%; top: 3rem;">
         
             
-            <blockquote><h3>PERSONAL INFORMATION:</h3></blockquote>
-            
-            <label for="email">Name</label>
-            <input type="email" class="form-control" id="name" aria-describedby="name" placeholder="Enter name">
+            <blockquote style="border-color: #6AC142;"><h3>PERSONAL INFORMATION:</h3></blockquote>
+    
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter name">
             <br/>
             <br/>
             <label for="email">Email address</label>
@@ -99,31 +110,31 @@
             <br/>
             <br/>
             <div id="personalInfo"  class= "card-deck">
-                <div id="info" class="card" style="width:40%">
-                    <div class="card-body">
-                        <h5 class="card-title">Work</h5>
-                        <input id="work1" type="text" placeholder="Address Line 1">
-                        <input id="work2" type="text" placeholder="Address Line 2">
-                        <input id="work3" type="text" placeholder="City">
-                        <input id="work4" type="text" placeholder="State">
-                        <input id="work5" type="number" placeholder="zipcode">
-                        <input id="work6" type="tel" placeholder="Phone">
-                        <input id="work7" type="tel" placeholder="Fax">
-                        <input id="work8" type="email" placeholder="Work email">
+                <div id="info" class="card">
+                    <div class="card-body" style="display: inline-table; margin: 1rem; width: 90%; color: black;">
+                        <h5 class="card-title">Work:</h5>
+                        <input style="margin: 0.2rem;" class="form-control" id="work1" type="text" placeholder="Address Line 1">
+                        <input style="margin: 0.2rem;" class="form-control" id="work2" type="text" placeholder="Address Line 2">
+                        <input style="margin: 0.2rem;" class="form-control" id="work3" type="text" placeholder="City">
+                        <input style="margin: 0.2rem;" class="form-control" id="work4" type="text" placeholder="State">
+                        <input style="margin: 0.2rem;" class="form-control" id="work5" type="number" placeholder="zipcode">
+                        <input style="margin: 0.2rem;" class="form-control" id="work6" type="tel" placeholder="Phone">
+                        <input style="margin: 0.2rem;" class="form-control" id="work7" type="tel" placeholder="Fax">
+                        <input style="margin: 0.2rem;" class="form-control" id="work8" type="email" placeholder="Work email">
                     </div>
                 </div>
           
-              <div id="info" class="card" style="width:40%">
-                    <div class="card-body">
-                        <h5 class="card-title>">Home</h5>  
-                        <input id="home1" type="text" placeholder="Address Line 1">
-                        <input id="home2" type="text" placeholder="Address Line 2">
-                        <input id="home3" type="text" placeholder="City">
-                        <input id="home4" type="text" placeholder="State">
-                        <input id="home5" type="number" placeholder="zipcode">
-                        <input id="home6" type="tel" placeholder="Phone">
-                        <input id="home7" type="tel" placeholder="Fax">
-                        <input id="home8" type="email" placeholder="Work email">
+              <div id="info" class="card">
+                    <div class="card-body" style="display: inline-table;margin: 1rem; width: 90%; color: black;">
+                        <h5 class="card-title>">Home:</h5>  
+                        <input style="margin: 0.2rem;" class="form-control" id="home1" type="text" placeholder="Address Line 1">
+                        <input style="margin: 0.2rem;" class="form-control" id="home2" type="text" placeholder="Address Line 2">
+                        <input style="margin: 0.2rem;" class="form-control" id="home3" type="text" placeholder="City">
+                        <input style="margin: 0.2rem;" class="form-control" id="home4" type="text" placeholder="State">
+                        <input style="margin: 0.2rem;" class="form-control" id="home5" type="number" placeholder="zipcode">
+                        <input style="margin: 0.2rem;" class="form-control" id="home6" type="tel" placeholder="Phone">
+                        <input style="margin: 0.2rem;" class="form-control" id="home7" type="tel" placeholder="Fax">
+                        <input style="margin: 0.2rem;" class="form-control" id="home8" type="email" placeholder="Work email">
                    </div>
                 </div>
             </div>
@@ -133,7 +144,7 @@
             <br/>
             <br/>
 
-            <blockquote><h3>Education and Graduation Training:</h3></blockquote>
+            <blockquote style="border-color: #6AC142;"><h3>Education and Graduation Training:</h3></blockquote>
             
             <div>
                 <h4>Education:</h4>
@@ -167,7 +178,7 @@
             <br/>
 
 
-            <blockquote><h3>LICENSURE & CERTIFICATIONS:</h3></blockquote>
+            <blockquote style="border-color: #6AC142;"><h3>LICENSURE & CERTIFICATIONS:</h3></blockquote>
 
             <div>
               <h4>Licensure:</h4>
@@ -182,13 +193,13 @@
             <br/>
             <br/>
 
-            <blockquote><h3>HONORS & AWARDS:</h3></blockquote>
+            <blockquote style="border-color: #6AC142;"><h3>HONORS & AWARDS:</h3></blockquote>
             <div>
                 <textarea class="form-control" id="awards" rows="15"></textarea>
             </div>
             <br/>
             <br/>
-            <blockquote><h3>TEACHING:</h3></blockquote>
+            <blockquote style="border-color: #6AC142;"><h3>TEACHING:</h3></blockquote>
             <div>
                 <h4>Didactic Teaching:</h4>
                 <textarea class="form-control" id="didactic" rows="15"></textarea>
@@ -213,7 +224,7 @@
             </div>
             <br/>
             <br/>
-            <blockquote><h3>SERVICE:</h3></blockquote>
+            <blockquote style="border-color: #6AC142;"><h3>SERVICE:</h3></blockquote>
             <br/>
             <br/>
             <div>
@@ -250,7 +261,9 @@
                 <h4>Major leadership position:</h4>
                 <textarea class="form-control" id="mlp" rows="15"></textarea>
             </div>
-            <blockquote><h3>RESEARCH AND SCHOLARSHIP:</h3></blockquote>
+            <br/>
+            <br/>
+            <blockquote style="border-color: #6AC142;"><h3>RESEARCH AND SCHOLARSHIP:</h3></blockquote>
             <br/>
             <br/>
             <div>
