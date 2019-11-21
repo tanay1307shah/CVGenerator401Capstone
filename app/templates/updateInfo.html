@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <head>
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> CV Parser</title>
     <script>
-        var data = '{{parsedData}}';
-        console.log(data.name);
-        </script>
+        // var data = '{{parsedData | tojson | safe}}';
+        // console.log(data);
+        // var obj = JSON.parse(data);
+        // console.log(obj.email);
+    </script>
 </head>
 <body>
         <form enctype="multipart/form-data" action="http://localhost:5000/uploaded" method="POST">
+        
+            <text>Name: </text> <input type="text">
             <br/>
-            <input placeholder="" type="text" class ="name" name="pass" id="n1_4" style="margin-top: 0.75rem;" disabled/>
+            <text>Email: </text><input type="email">
             <br/>
-            <input type="file"  name="file" id="file" class="upload" onchange="update()"/>
-            <label id ="lbl" for="file">Choose a file</label>
-            <button type="submit">Submit</button>
-          </form>
+            <text>Personal Information:</text><br/>
+            <div id="personalInfo">
+                <input type="text" placeholder="Type">
+                <input type="text" placeholder="Address Line 1">
+                <input type="text" placeholder="Address Line 2">
+                <input type="text" placeholder="City">
+                <input type="text" placeholder="State">
+                <input type="number" placeholder="zipcode">
+            </div>
+            
+        </form>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>

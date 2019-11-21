@@ -1,384 +1,45 @@
-<!-- Create New Pg -->
-<div class="frame" id="n3_14">
-  <!-- Username -->
-  <div class="center rectangle" id="n3_16"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_17">First Name</div>
-  <!-- Username -->
-  <div class="center rectangle" id="n3_27"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_28">Last Name</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_18"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_29">Phone Number</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_32"></div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_38"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_39">City</div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_33">Other Links</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_43"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_44">Pincode</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_41"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_42">State</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_36"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_37">Adress Line 2</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_34"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_35">Address Line 1</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n3_30"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n3_31">Email</div>
-  <!-- Personal Information -->
-  <div class="center text" id="n3_45">Personal Information</div>
-  <!-- Education -->
-  <div class="center text" id="n3_46">Education</div>
-</div>
+<!DOCTYPE html>
+<head>
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-<!-- ———————      CSS      ——————— -->
-<style>
-  /* Create New Pg */
-  #n3_14 {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: rgb(1, 91, 154);
-  }
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title> CV Parser</title>
+    <script>
+        function addNewInfo(){
+          document.getElementById("personalInfo").innerHTML += "<div id=\"info\" class=\"card\" style=\"display: inline-block;\">" + 
+            "<input type=\"text\" placeholder=\"Type\">" + 
+            "<input type=\"text\" placeholder=\"Address Line 1\">" +
+            "<input type=\"text\" placeholder=\"Address Line 2\">" +
+            "<input type=\"text\" placeholder=\"City\">" +
+            "<input type=\"text\" placeholder=\"State\">" +
+            "<input type=\"number\" placeholder=\"zipcode\"> <br/> </div>";
+        }
+    </script>
+</head>
+<body>
+        <form enctype="multipart/form-data" action="http://localhost:5000/uploaded" method="POST" style="position: absolute; left:100;">
+        
+            <text>Name: </text> <input type="text">
+            <br/>
+            <text>Email: </text><input type="email">
+            <br/>
+            <text>Personal Information:</text><br/>
+            <div id="personalInfo" >
+                <div id="info" class="card" style="display: inline-block;">
+                    <input type="text" placeholder="Type">
+                    <input type="text" placeholder="Address Line 1">
+                    <input type="text" placeholder="Address Line 2">
+                    <input type="text" placeholder="City">
+                    <input type="text" placeholder="State">
+                    <input type="number" placeholder="zipcode">
+                    <br/>
+                </div>
+            </div>
+            <intput type="button"  class="waves-effect waves-light btn" onclick="addNewInfo()">Add more</intput>
 
-  /* Username */
-  #n3_16 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 182.5px) + -503.5px);
-    width: 365px;
-    top: calc((50% - 25.5px) + -369.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_17 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    text-align: center;
-    justify-content: center;
-    width: 121px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 60.5px) + -609.5px);
-    top: calc((50% - 24.5px) + -370.5px);
-  }
-
-  /* Username */
-  #n3_27 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 182.5px) + -102.5px);
-    width: 365px;
-    top: calc((50% - 25.5px) + -369.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_28 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    text-align: center;
-    justify-content: center;
-    width: 121px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 60.5px) + -208.5px);
-    top: calc((50% - 24.5px) + -370.5px);
-  }
-
-  /* Password */
-  #n3_18 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 226.5px) + 342.5px);
-    width: 453px;
-    top: calc((50% - 25.5px) + -370.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_29 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    text-align: center;
-    justify-content: center;
-    width: 179px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 89.5px) + 221.5px);
-    top: calc((50% - 24.5px) + -371.5px);
-  }
-
-  /* Password */
-  #n3_32 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 226.5px) + 18.5px);
-    width: 453px;
-    top: calc((50% - 25.5px) + -282.5px);
-    height: 51px;
-  }
-
-  /* Password */
-  #n3_38 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 107px) + -579px);
-    width: 214px;
-    top: calc((50% - 25.5px) + -118.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_39 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 111px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 55.5px) + -620.5px);
-    top: calc((50% - 24.5px) + -117.5px);
-  }
-
-  /* Employee ID */
-  #n3_33 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 179px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 89.5px) + -102.5px);
-    top: calc((50% - 24.5px) + -281.5px);
-  }
-
-  /* Password */
-  #n3_43 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 109px) + 7px);
-    width: 218px;
-    top: calc((50% - 25.5px) + -118.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_44 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 86px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 43px) + -51px);
-    top: calc((50% - 24.5px) + -117.5px);
-  }
-
-  /* Password */
-  #n3_41 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 163px) + -284px);
-    width: 326px;
-    top: calc((50% - 25.5px) + -118.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_42 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 128px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 64px) + -371px);
-    top: calc((50% - 24.5px) + -117.5px);
-  }
-
-  /* Password */
-  #n3_36 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 226.5px) + 18.5px);
-    width: 453px;
-    top: calc((50% - 25.5px) + -198.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_37 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 179px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 89.5px) + -102.5px);
-    top: calc((50% - 24.5px) + -197.5px);
-  }
-
-  /* Password */
-  #n3_34 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 226.5px) + -459.5px);
-    width: 453px;
-    top: calc((50% - 25.5px) + -198.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_35 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 179px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 89.5px) + -580.5px);
-    top: calc((50% - 24.5px) + -197.5px);
-  }
-
-  /* Password */
-  #n3_30 {
-    background: rgb(255, 255, 255);
-    border-radius: 10px;
-    left: calc((50% - 226.5px) + -459.5px);
-    width: 453px;
-    top: calc((50% - 25.5px) + -278.5px);
-    height: 51px;
-  }
-
-  /* Employee ID */
-  #n3_31 {
-    font-family: Cabin;
-    font-size: 24px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgba(1, 91, 154, 0.5);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 179px;
-    align-items: center;
-    line-height: 28.125px;
-    height: 49px;
-    left: calc((50% - 89.5px) + -580.5px);
-    top: calc((50% - 24.5px) + -279.5px);
-  }
-
-  /* Personal Information */
-  #n3_45 {
-    font-family: "Marko One";
-    font-size: 48px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgb(255, 255, 255);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 635px;
-    align-items: center;
-    line-height: 56.25px;
-    height: 94px;
-    left: calc((50% - 317.5px) + -368.5px);
-    top: calc((50% - 47px) + -460px);
-  }
-
-  /* Education */
-  #n3_46 {
-    font-family: "Marko One";
-    font-size: 48px;
-    font-weight: 400;
-    letter-spacing: 0px;
-    color: rgb(255, 255, 255);
-    vertical-align: middle;
-    justify-content: flex-start;
-    width: 635px;
-    align-items: center;
-    line-height: 56.25px;
-    height: 94px;
-    left: calc((50% - 317.5px) + -368.5px);
-    top: calc((50% - 47px) + -10px);
-  }
-</style>
-
-
-<!-- Login Page -->
-<div class="frame" id="n1_2">
-  <!-- chla logo -->
-  <div class="center rectangle" id="n1_3"></div>
-  <!-- Username -->
-  <div class="center rectangle" id="n1_4"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n1_7">Username</div>
-  <!-- Password -->
-  <div class="center rectangle" id="n1_5"></div>
-  <!-- Employee ID -->
-  <div class="center text" id="n1_8">Password</div>
-  <!-- CV-Genius -->
-  <div class="center text" id="n1_9">CV-Genius</div>
-  <!-- Register? -->
-  <div class="center text" id="n1_10">Register?</div>
-</div>
+        </form>
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
