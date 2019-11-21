@@ -1,45 +1,297 @@
 <!DOCTYPE html>
 <head>
-     <!-- Compiled and minified CSS -->
+     <!-- Compiled and minified CSS
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-     <!-- Compiled and minified JavaScript -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     Compiled and minified JavaScript -->
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0"/> --> 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <title> CV Parser</title>
+
     <script>
-        function addNewInfo(){
-          document.getElementById("personalInfo").innerHTML += "<div id=\"info\" class=\"card\" style=\"display: inline-block;\">" + 
-            "<input type=\"text\" placeholder=\"Type\">" + 
-            "<input type=\"text\" placeholder=\"Address Line 1\">" +
-            "<input type=\"text\" placeholder=\"Address Line 2\">" +
-            "<input type=\"text\" placeholder=\"City\">" +
-            "<input type=\"text\" placeholder=\"State\">" +
-            "<input type=\"number\" placeholder=\"zipcode\"> <br/> </div>";
+
+        var autoExpand = function (field) {
+
+        // Reset field height
+        field.style.height = 'inherit';
+
+        // Get the computed styles for the element
+        var computed = window.getComputedStyle(field);
+
+        // Calculate the height
+        var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+                    + parseInt(computed.getPropertyValue('padding-top'), 10)
+                    + field.scrollHeight
+                    + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+                    + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+        field.style.height = height + 'px';
+
+        };
+
+        document.addEventListener('input', function (event) {
+        if (event.target.tagName.toLowerCase() !== 'textarea') return;
+        autoExpand(event.target);
+        }, false);
+
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            // xhttp.onreadystatechange = function() {
+            //     if (this.readyState == 4 && this.status == 200) {
+            //     document.getElementById("name").innerHTML = this.responseText;
+            //     }
+            // };
+
+            var homeAdd = document.getElementById('home1').val + ",\n"
+                            + document.getElementById('home2').val + ",\n"
+                            + document.getElementById('home3').val + ","
+                            + document.getElementById('home4').val + ","
+                            + document.getElementById('home5').val + ",\n"
+                            + "phone: " + document.getElementById('home6').val + ",\n"
+                            + "fax: " + document.getElementById('home7').val + ",\n"
+                            + "email: " + document.getElementById('home8').val + ",";
+
+            var wordAdd = document.getElementById('work1').val + ",\n"
+                            + document.getElementById('work2').val + ",\n"
+                            + document.getElementById('work3').val + ","
+                            + document.getElementById('work4').val + ","
+                            + document.getElementById('work5').val + ",\n"
+                            + "phone: " + document.getElementById('work6').val + ",\n"
+                            + "fax: " + document.getElementById('work7').val + ",\n"
+                            + "email: " + document.getElementById('work8').val + ",";
+
+
+            
+            xhttp.open("POST", "/generateResume?data=" + JSON.stringify(data) , true);
+            xhttp.send();
         }
+
     </script>
 </head>
 <body>
-        <form enctype="multipart/form-data" action="http://localhost:5000/uploaded" method="POST" style="position: absolute; left:100;">
+        <div style="align-content: center; width: 80%; align-self: center;position: absolute; left: 10%; top: 3rem;">
         
-            <text>Name: </text> <input type="text">
+            
+            <blockquote><h3>PERSONAL INFORMATION:</h3></blockquote>
+            
+            <label for="email">Name</label>
+            <input type="email" class="form-control" id="name" aria-describedby="name" placeholder="Enter name">
             <br/>
-            <text>Email: </text><input type="email">
             <br/>
-            <text>Personal Information:</text><br/>
-            <div id="personalInfo" >
-                <div id="info" class="card" style="display: inline-block;">
-                    <input type="text" placeholder="Type">
-                    <input type="text" placeholder="Address Line 1">
-                    <input type="text" placeholder="Address Line 2">
-                    <input type="text" placeholder="City">
-                    <input type="text" placeholder="State">
-                    <input type="number" placeholder="zipcode">
-                    <br/>
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="email" placeholder="Enter email">
+            <br/>
+            <br/>
+            <div id="personalInfo"  class= "card-deck">
+                <div id="info" class="card" style="width:40%">
+                    <div class="card-body">
+                        <h5 class="card-title">Work</h5>
+                        <input id="work1" type="text" placeholder="Address Line 1">
+                        <input id="work2" type="text" placeholder="Address Line 2">
+                        <input id="work3" type="text" placeholder="City">
+                        <input id="work4" type="text" placeholder="State">
+                        <input id="work5" type="number" placeholder="zipcode">
+                        <input id="work6" type="tel" placeholder="Phone">
+                        <input id="work7" type="tel" placeholder="Fax">
+                        <input id="work8" type="email" placeholder="Work email">
+                    </div>
+                </div>
+          
+              <div id="info" class="card" style="width:40%">
+                    <div class="card-body">
+                        <h5 class="card-title>">Home</h5>  
+                        <input id="home1" type="text" placeholder="Address Line 1">
+                        <input id="home2" type="text" placeholder="Address Line 2">
+                        <input id="home3" type="text" placeholder="City">
+                        <input id="home4" type="text" placeholder="State">
+                        <input id="home5" type="number" placeholder="zipcode">
+                        <input id="home6" type="tel" placeholder="Phone">
+                        <input id="home7" type="tel" placeholder="Fax">
+                        <input id="home8" type="email" placeholder="Work email">
+                   </div>
                 </div>
             </div>
-            <intput type="button"  class="waves-effect waves-light btn" onclick="addNewInfo()">Add more</intput>
+            <br/>
+            <br/>
+           
+            <br/>
+            <br/>
 
-        </form>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+            <blockquote><h3>Education and Graduation Training:</h3></blockquote>
+            
+            <div>
+                <h4>Education:</h4>
+                <textarea class="form-control" id="education" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+              <h4>Post Graduation Training:</h4>
+              <textarea class="form-control" id="pgtcon" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Other Training:</h4>
+                <textarea class="form-control" id="othercon" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Academic Appoitments:</h4>
+                <textarea class="form-control" id="academic" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Clinical Appointments:</h4>
+                <textarea class="form-control" id="clinical" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+
+
+            <blockquote><h3>LICENSURE & CERTIFICATIONS:</h3></blockquote>
+
+            <div>
+              <h4>Licensure:</h4>
+              <textarea class="form-control" id="license" rows="4"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Board certification/eligibility:</h4>
+                <textarea class="form-control" id="certificate" rows="4"></textarea>
+            </div>
+            <br/>
+            <br/>
+
+            <blockquote><h3>HONORS & AWARDS:</h3></blockquote>
+            <div>
+                <textarea class="form-control" id="awards" rows="15"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <blockquote><h3>TEACHING:</h3></blockquote>
+            <div>
+                <h4>Didactic Teaching:</h4>
+                <textarea class="form-control" id="didactic" rows="15"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Undergraduate, Graduate & Medical Student Training:</h4>
+                <textarea class="form-control" id="ugm" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Graduate student Thesis, exam and disscretion comittee:</h4>
+                <textarea class="form-control" id="gst" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Postgraduate Mentorship:</h4>
+                <textarea class="form-control" id="pgm" rows="7"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <blockquote><h3>SERVICE:</h3></blockquote>
+            <br/>
+            <br/>
+            <div>
+                <h4>Hospital or Medical group service:</h4>
+                <textarea class="form-control" id="hms" rows="10"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>University Service:</h4>
+                <textarea class="form-control" id="us" rows="8"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Professional Service:</h4>
+                <textarea class="form-control" id="ps" rows="10"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Professional Society Membership:</h4>
+                <textarea class="form-control" id="psm" rows="5"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Community Service:</h4>
+                <textarea class="form-control" id="cs" rows="5"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Major leadership position:</h4>
+                <textarea class="form-control" id="mlp" rows="15"></textarea>
+            </div>
+            <blockquote><h3>RESEARCH AND SCHOLARSHIP:</h3></blockquote>
+            <br/>
+            <br/>
+            <div>
+                <h4>Major areas or research interest:</h4>
+                <textarea class="form-control" id="mari" rows="5"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Grant support-Current:</h4>
+                <textarea class="form-control" id="gsc" rows="15"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Grant support-Past:</h4>
+                <textarea class="form-control" id="gsp" rows="10"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Issued & Pending patents:</h4>
+                <textarea class="form-control" id="ipp" rows="3"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Invited Lectures and keynote:</h4>
+                <textarea class="form-control" id="ilk" rows="15"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <div>
+                <h4>Invited Grand Rounds, CME Lectures:</h4>
+                <textarea class="form-control" id="igr" rows="5"></textarea>
+            </div>
+            <br/>
+            <br/>
+            <button" value="Submit" onclick="loadDoc()">Submit</button>
+            <br/>
+            <br/>
+            <br/>
+        </div>
 </body>

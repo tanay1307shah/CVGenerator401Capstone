@@ -49,7 +49,9 @@ def uploadFile():
         data = ResumeParser(os.path.join(app.config['UPLOAD_FOLDER'],filename)).get_extracted_data()
         return render_template("updateInfo.html", parsedData = data)
  
-    
+@app.route("/generateResume",methods=["POST"])
+def generateResume():
+    return request.args
 
 @app.route("/create", methods=["GET", "POST"])
 def create():
