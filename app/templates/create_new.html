@@ -61,49 +61,56 @@
         autoExpand(event.target);
         }, false);
 
+
+        function format(str){
+            str = str.replace(/\t/g, "X");
+            str = str.replace('\n', "|");
+            return str;
+        }
+
         function loadDoc() {
             
-            var homeAdd = document.getElementById('home1').value  + ",\n"
-                            + document.getElementById('home2').value + ",\n"
+            var homeAdd = document.getElementById('home1').value  + ",|"
+                            + document.getElementById('home2').value + ",|"
                             + document.getElementById('home3').value + ","
                             + document.getElementById('home4').value + ","
-                            + document.getElementById('home5').value + ",\n"
-                            + "phone: " + document.getElementById('home6').value + ",\n"
-                            + "fax: " + document.getElementById('home7').value + ",\n"
+                            + document.getElementById('home5').value + ",|"
+                            + "phone: " + document.getElementById('home6').value + ",|"
+                            + "fax: " + document.getElementById('home7').value + ",|"
                             + "email: " + document.getElementById('home8').value + ",";
 
-            var wordAdd = document.getElementById('work1').value + ",\n"
-                            + document.getElementById('work2').value + ",\n"
+            var wordAdd = document.getElementById('work1').value + ",|"
+                            + document.getElementById('work2').value + ",|"
                             + document.getElementById('work3').value + ","
                             + document.getElementById('work4').value + ","
-                            + document.getElementById('work5').value + ",\n"
-                            + "phone: " + document.getElementById('work6').value + ",\n"
-                            + "fax: " + document.getElementById('work7').value + ",\n"
+                            + document.getElementById('work5').value + ",|"
+                            + "phone: " + document.getElementById('work6').value + ",|"
+                            + "fax: " + document.getElementById('work7').value + ",|"
                             + "email: " + document.getElementById('work8').value + ",";
 
             var name = document.getElementById('name').value;
             var email = document.getElementById('email').value;
-
-            var education = document.getElementById('education').value;
-            var postgradtraining = document.getElementById('pgtcon').value;
-            var othertraining = document.getElementById('othercon').value;
-            var academicappt = document.getElementById('academic').value;
-            var clinicalappt = document.getElementById('clinical').value;
-            var license = document.getElementById('license').value;
-            var boardcertificate = document.getElementById('certificate').value;
-            var awards = document.getElementById('awards').value;
-            var didactic = document.getElementById('didactic').value;
-            var ugm = document.getElementById('ugm').value;
-            var gst = document.getElementById('gst').value;
-            var hms = document.getElementById('hms').value;
-            var us = document.getElementById('us').value;
-            var cs = document.getElementById('cs').value;
-            var mlp = document.getElementById('mlp').value;
-            var mari = document.getElementById('mari').value;
-            var gsc = document.getElementById('gsc').value;
-            var ipp = document.getElementById('ipp').value;
-            var ilk = document.getElementById('ilk').value;
-            var igr = document.getElementById('igr').value;
+            var education = format(document.getElementById('education').value);
+           
+            var postgradtraining = format(document.getElementById('pgtcon').value);
+            var othertraining = format(document.getElementById('othercon').value);
+            var academicappt = format(document.getElementById('academic').value);
+            var clinicalappt = format(document.getElementById('clinical').value);
+            var license = format(document.getElementById('license').value);
+            var boardcertificate = format(document.getElementById('certificate').value);
+            var awards = format(document.getElementById('awards').value);
+            var didactic = format(document.getElementById('didactic').value);
+            var ugm = format(document.getElementById('ugm').value);
+            var gst = format(document.getElementById('gst').value);
+            var hms = format(document.getElementById('hms').value);
+            var us = format(document.getElementById('us').value);
+            var cs = format(document.getElementById('cs').value);
+            var mlp = format(document.getElementById('mlp').value);
+            var mari = format(document.getElementById('mari').value);
+            var gsc = format(document.getElementById('gsc').value);
+            var ipp = format(document.getElementById('ipp').value);
+            var ilk = format(document.getElementById('ilk').value);
+            var igr = format(document.getElementById('igr').value);
             
             
 
