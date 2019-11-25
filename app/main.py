@@ -77,6 +77,11 @@ def upload():
 def display():
     return render_template("cv_display.html")
 
+@app.route("/getPublications", methods=["GET","POST"])
+def publication():
+    response  = requests.post('https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term="espinoza+j"[au]&api_key=63671c35f32fbe450f89377113be0771ae08')
+    print(response.text())
+    return "done"
 
 if __name__ == "__main__":
     app.run(debug=True)

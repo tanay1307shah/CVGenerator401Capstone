@@ -147,6 +147,56 @@
             xhttp.send();
         }
 
+
+        function getPublications(id){
+            
+            var list = "";
+            var xhttp = new XMLHttpRequest();
+
+            xhttp.open("POST",'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term="espinoza+j"[au]&retmax=50&retmode=json&api_key=63671c35f32fbe450f89377113be0771ae08',true);
+            xhttp.onreadystatechange=function() {
+                if (xhttp.readyState==4 && xhttp.status==200) {
+                   var data = JSON.parse(xhttp.responseText);
+                   list = data.esearchresult.idlist;
+
+                   var xmlHttp = new XMLHttpRequest();
+
+                    var url = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&retmode=json&id=';
+                    
+                    var ids = "";
+                    for(var i=0; i<list.length;i++){
+                        if(i+1 === list.length){
+                            ids += list[i];
+                        }else{
+                            ids += list[i] + ",";
+                        }
+                    }
+                    url += ids;
+                    console.log("ggg");
+                    xmlHttp.open("POST",url,true);
+                    xmlHttp.onreadystatechange= function(){
+                        if(xmlHttp.readyState == 4 && xmlHttp.status==200){
+                            var dat = JSON.parse(xmlHttp.responseText)
+                            for(var i=0;i<list.length;i++){
+                               document.getElementById('publications').innerHTML += '<div class="shadow p-3 mb-5 bg-white rounded">'+
+                                '<div class="card" style="color:black;">'+
+                                    '<div class="card-body" style="margin:20px;">'+
+                                        '<p class="text-justify"><b>Title:</b>' + dat.result[list[i]].title +'</p>'+
+                                        '<p class="text-justify"> <b>Journal:</b>' + dat.result[list[i]].fulljournalname +'</p>'+
+                                    '</div>'+
+                                '</div>'+
+                               '</div>';
+                               console.log(dat.result[list[i]].title);
+                            }
+                        }
+                    }
+                    xmlHttp.send();
+                }
+            }
+            xhttp.send();
+
+        }
+
     </script>
 </head>
 <body id ="n1_2">
@@ -356,9 +406,26 @@
             </div>
             <br/>
             <br/>
+
+
+            <blockquote style="border-color: #6AC142;"><h3>PUBLICATIONS:</h3></blockquote>
+
+
+            <button class="btn btn-raised" style="background-color: #6AC142;" type="button" onclick="getPublications()">Get publications</button>            
+            <br/>
+            <br/>
+            <br/>
+            
+            <div id="publications" style="font-family: monospace;"></div>
+
+            
+            <br/>
+            <br/>
+            
             <button class="btn btn-raised" style="background-color: #6AC142;" type="button" onclick="loadDoc()">Generate Resume</button>
             <br/>
             <br/>
             <br/>
+
         </div>
 </body>
