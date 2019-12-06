@@ -3,7 +3,7 @@
   #n1_2 {
     width: 100%;
     height: 100%;
-    font-family: "Marko One";
+    font-family: "Roboto";
     color: white;
     background: rgb(1, 91, 154);
   }
@@ -329,6 +329,7 @@
       id="name"
       aria-describedby="name"
       placeholder="Enter name"
+      value="{{ parsedData.name }}"
     />
     <br />
     <br />
@@ -339,6 +340,7 @@
       id="email"
       aria-describedby="email"
       placeholder="Enter email"
+      value="{{ parsedData.email }}"
     />
     <br />
     <br />
@@ -482,10 +484,11 @@
     <blockquote style="border-color: #6AC142;">
       <h3>Education and Graduation Training:</h3>
     </blockquote>
-
     <div>
       <h4>Education:</h4>
-      <textarea class="form-control" id="education" rows="7"></textarea>
+      <textarea class="form-control" id="education" rows="7">{{
+        parsedData.skills
+      }}</textarea>
     </div>
     <br />
     <br />
@@ -678,6 +681,13 @@
     >
       Generate Resume
     </button>
+    <a
+      class="btn btn-raised"
+      style="background-color: #6AC142; text-decoration: none; color: white"
+      href="/dashboard"
+    >
+      Back to Dashboard
+    </a>
     <br />
     <br />
     <br />
